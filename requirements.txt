@@ -1,0 +1,6 @@
+py
+pytest
+pytest-cov
+coverage
+pandas
+py-ms[all]>=2.7.0
