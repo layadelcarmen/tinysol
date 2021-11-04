@@ -15,3 +15,9 @@ def calculate_percentile_for_column(df, column, ref_percentile):
     '''    
     return df[column].quantile(ref_percentile)
 
+
+def get_records_above(df, column, val_percentile):
+    '''
+    Get the records above a certain value in the specified Dataframe´s column 
+    '''     
+    return df[df[column] > val_percentile].to_json(orient='records')

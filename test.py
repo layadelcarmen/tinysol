@@ -2,7 +2,7 @@ import pandas as pd
 
 import pytest
 
-from csvprocessing import load_csv_data, calculate_percentile_for_column
+from csvprocessing import load_csv_data, calculate_percentile_for_column, get_records_above
 
 from unittest.mock import patch
 
@@ -19,7 +19,6 @@ def _load_test_data():
     return data
 
 
-
 @patch('csvprocessing.pd.read_csv')
 def test_load_csv_data(load_csv_data):   
     pass
@@ -30,4 +29,15 @@ def test_percentil_for_column(column, ref_percentile, val_expected):
     data = _load_test_data()
     expected = val_expected
     result = calculate_percentile_for_column(data, column, ref_percentile)
+    assert expected == result
+
+
+@pytest.mark.parametrize("column, ref_value, val_expected", [("feature_1", 6.2, '[{"class":1,"feature_1":7,"feature_2":6,"feature_3":3,"feature_4":7}]')])
+def test_get_records_above(column, ref_value, val_expected):
+    '''
+    Test function get_records_above
+    '''
+    data = _load_test_data()
+    expected = val_expected
+    result = get_records_above(data, column, ref_value)
     assert expected == result
