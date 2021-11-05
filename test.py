@@ -2,7 +2,7 @@ import pandas as pd
 
 import pytest
 
-from csvprocessing import load_csv_data, calculate_percentile_for_column, get_records_above
+from csvprocessing import load_csv_data, calculate_percentile_for_column, get_records_above, type_data_check
 
 from unittest.mock import patch
 
@@ -41,3 +41,10 @@ def test_get_records_above(column, ref_value, val_expected):
     expected = val_expected
     result = get_records_above(data, column, ref_value)
     assert expected == result
+
+
+@pytest.mark.parametrize("column, types", [("feature_1", ["int64", "float64"])])
+def test_type_data_check(column, types):   
+    data = _load_test_data()
+    result = check_data_type(data, column, types)
+    assert result == True
