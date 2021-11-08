@@ -2,9 +2,14 @@ import pandas as pd
 
 import pytest
 
-from csvprocessing import load_csv_data, calculate_percentile_for_column, get_records_above, type_data_check
+from csvprocessing.csvprocessing import (
+    load_csv_data,
+    calculate_percentile_for_column,
+    get_records_above,
+    check_data_type
+)
 
-from unittest.mock import patch
+#from unittest.mock import patch
 
 
 
@@ -19,9 +24,9 @@ def _load_test_data():
     return data
 
 
-@patch('csvprocessing.pd.read_csv')
-def test_load_csv_data(load_csv_data):   
-    pass
+#@patch('csvprocessing.pd.read_csv')
+# def test_load_csv_data(load_csv_data):   
+#     pass
 
 
 @pytest.mark.parametrize("column, ref_percentile, val_expected", [("feature_1", 0.9, 6.2)])
