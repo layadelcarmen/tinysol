@@ -15,10 +15,14 @@ Returns all records in a CSV file over a percentile value in the specified colum
 
 ### Installing
 
-* Install the requirements
+* Download the repo
+
+
 
 ```
-pip install -r requirements.txt
+cd tinysol
+
+pip install -e .
 ```
 
 
@@ -26,14 +30,14 @@ pip install -r requirements.txt
 
 * Run as a python script
 
-* USAGE: script.py [inputfile] [column_name] [percentile]
+* USAGE: csv-processing [inputfile] [column_name] [percentile]
 
 
 ```
-code blocks for commands
+csv-processing [inputfile] [column_name] [percentile]
 ```
 
-### Discusing the solution
+### Discussing the solution
 
 The Problem: Given NYC “Yellow Taxi” Trips Data, return all the trips over 0.9 percentile in distance traveled.
 
@@ -41,7 +45,7 @@ The first decision is to inspect the data, how big is, its necesary to persist t
 
 It's necesary to create a data structure with the columns names, and use this as further condition in the data validation process? Json offers the amazing key value characteristic, so a result exposed in this format can be easily to undertand and use for developers.
 
-Data quality: If you want to calculate a percentile, the column should contain numeric values. Percentile function ignores the NA values.
+Data quality: If you want to calculate a percentile, the column should contain numeric values. Percentile function ignores NA values.
 
 
 #### Define a processing module
