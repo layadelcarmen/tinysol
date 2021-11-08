@@ -8,16 +8,9 @@ Returns all records in a CSV file over a percentile value in the specified colum
 
 ## Getting Started
 
-### Dependencies
-
-*  Pandas
-*  Pytest
-
 ### Installing
 
 * Download the repo
-
-
 
 ```
 cd tinysol
